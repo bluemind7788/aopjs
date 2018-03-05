@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>测试</title>
+</head>
+<body>
+	<script type="text/javascript" src="./aop.js"></script>
+	<script type="text/javascript">
+		var myObj = {
+			doSomething: function() {
+				console.log('Do something.')
+			}
+		}
+		AOP.after(myObj, 'doSomething', function() {
+			console.log('Log after doing something.')
+		})
+		myObj.doSomething()
+	</script>
+</body>
+</html>
