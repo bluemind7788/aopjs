@@ -1,19 +1,19 @@
 {
-  "name": "knitjs",
+  "name": "@bluemind/knitjs",
   "version": "1.0.0",
-  "description": "Implem",
+  "description": "An Javascript library for AOP(Aspect Oriented Programming)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluemind7788/aopjs.git"
+    "url": "git+https://github.com/bluemind7788/knitjs.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bluemind7788/aopjs/issues"
+    "url": "https://github.com/bluemind7788/knitjs/issues"
   },
-  "homepage": "https://github.com/bluemind7788/aopjs#readme"
+  "homepage": "https://github.com/bluemind7788/knitjs#readme"
 }

@@ -1,8 +1,47 @@
-# aopjs
-### Why面向切面编程AOP
-在编写业务代码的时候，我们常常需要加入日志输出、统计数据、性能监控、权限过滤、安全检查等逻辑，这些逻辑不是垂直的业务逻辑，而是公共基础的设施。如果把它们混合写到业务代码中，就违反了单一指责和关注点分离原则，业务增多之后，会存在大量的重复代码。   
-要实现这些公共基础逻辑与业务逻辑的解耦，我们可以用面向切面的编程思想。如果一个程序是一个管道系统,AOP 就是在管道上钻一些孔, 在每个孔中注入新的代码流。实现AOP的关键就是将切面的逻辑嵌入到主体的业务程序之中。
-### AOP的编程模型
-- 接入点（JointPoint。程序执行过程中特定的点，一般是方法调用
-- 增强处理（Advice）。定义针对连接点所做的增强处理，定义了“是什么”（增强处理的内容）以及“何时”（前置、后置、返回、异常、环绕）；
-- 目标对象（Target）。被增强处理的对象
+[Aspect Oriented Programming](http://en.wikipedia.org/wiki/Aspect-oriented_programming "Aspect-oriented programming - Wikipedia, the free encyclopedia") for Javascript.  It allows you to change the behavior of, or add behavior to methods and functions (including constructors) *non-invasively*.
+
+As a simple example, instead of changing code, you can use meld to log the result of `myObject.doSomething`:
+
+```js
+var myObject = {
+	add: function(a, b) {
+		return a + b;
+	}
+};
+
+// Call a function after myObject.add returns
+var remover = knit.after(myObject, 'add', function(result) {
+	console.log('myObject.add returned: ' + result);
+});
+
+myObject.add(1, 2); // Logs: "myObject.add returned: 3"
+
+remover.remove();
+
+myObject.add(1, 2); // Nothing logged
+```
+
+# Quick Start
+
+### AMD
+
+1. Get it using one of the following
+	1. `npm install @bluemind/knitjs `, or
+	1. `git clone git+https://github.com/bluemind7788/knitjs.git`, or
+	1. `git submodule add git+https://github.com/bluemind7788/knitjs.git`
+
+1. Configure your loader with a package:
+
+	```js
+	packages: [
+		{ name: 'knit', location: 'path/to/knit', main: 'knit' },
+		// ... other packages ...
+	]
+	```
+
+1. `define(['knit', ...], function(knit, ...) { ... });` or `require(['knit', ...], function(knit, ...) { ... });`
+
+### Node
+
+1. `npm install @bluemind/knitjs`
+1. `var knit = require('Knit');`

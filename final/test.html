@@ -5,7 +5,7 @@
 <title>test</title>
 </head>
 <body>
-	<script type="text/javascript" src="./aop.js"></script>
+	<script type="text/javascript" src="./knit.js"></script>
 	<script type="text/javascript">
 		var name = 'RootName'
 		var myObj = {
@@ -17,19 +17,19 @@
 				return num1.val + num2.val
 			}
 		}
-		var remover = AOP.after(myObj, 'doSomething', function() {
-			console.log('Log after doing something.')
+		var remover = Knit.before(myObj, 'doSomething', function() {
+			console.log('Log before doing something.')
 		})
 		myObj.doSomething()
 		remover.remove()
 		myObj.doSomething()
 
 
-		AOP.after(myObj, 'add', function() {
-			console.log('Add happend.')
+		Knit.after(myObj, 'add', function(result) {
+			console.log('myObject.add returned: ' + result)
 		})
 
-		AOP.afterThrowing(myObj, 'add', function() {
+		Knit.afterThrowing(myObj, 'add', function() {
 			console.log('Error occured while dividing.')
 		})
 

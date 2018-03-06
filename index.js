@@ -4,7 +4,7 @@
 	} else if(typeof define === 'function' && definde.amd) {
 		define(factory)
 	} else {
-		root.AOP = factory()
+		root.Knit = factory()
 	}
 })(this, function() {
 	function around(target, pointcut, adviced) {
@@ -24,22 +24,22 @@
 		}
 	}
 
-	AOP = {}
-	AOP.before = function(target, pointcut, advice) {
+	Knit = {}
+	Knit.before = function(target, pointcut, advice) {
 		return around(target, pointcut, function(oriFunc, args) {
 			advice.call(this)
 			var oriResult = oriFunc.apply(this, args)
 			return oriResult
 		})
 	}
-	AOP.after = function(target, pointcut, advice) {
+	Knit.after = function(target, pointcut, advice) {
 		return around(target, pointcut, function(oriFunc, args) {
 			var oriResult = oriFunc.apply(this, args)
 			advice.call(this)
 			return oriResult
 		})
 	}
-	AOP.around = function(target, pointcut, advice) {
+	Knit.around = function(target, pointcut, advice) {
 		return around(target, pointcut, function(oriFunc, args) {
 			var oriResult
 			advice.call(this)
@@ -48,7 +48,7 @@
 			return oriResult
 		})
 	}
-	AOP.afterThrowing = function(target, pointcut, advice) {
+	Knit.afterThrowing = function(target, pointcut, advice) {
 		return around(target, pointcut, function(oriFunc, args) {
 			var oriResult
 			try {
@@ -61,5 +61,5 @@
 	}
 
 
-	return AOP
+	return Knit
 });

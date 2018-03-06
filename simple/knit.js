@@ -6,14 +6,14 @@
 		}
 	}
 
-	AOP = {}
-	AOP.after = function(target, pointcut, advice) {
+	Knit = {}
+	Knit.after = function(target, pointcut, advice) {
 		around(target, pointcut, function(f) {
 			f.call(null)
 			advice.call(null)
 		})
 	}
 
-	window.AOP = AOP
+	window.Knit = Knit
 })();
 
