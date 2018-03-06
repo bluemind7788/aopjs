@@ -9,8 +9,8 @@
 	AOP = {}
 	AOP.after = function(target, pointcut, advice) {
 		around(target, pointcut, function(f) {
-			f.call()
-			advice.call()
+			f.call(null)
+			advice.call(null)
 		})
 	}
 
