@@ -5,14 +5,14 @@
 <title>test</title>
 </head>
 <body>
-	<script type="text/javascript" src="./knit.js"></script>
+	<script type="text/javascript" src="./aop.js"></script>
 	<script type="text/javascript">
 		var myObj = {
 			doSomething: function() {
 				console.log('Do something.')
 			}
 		}
-		Knit.after(myObj, 'doSomething', function() {
+		AOP.after(myObj, 'doSomething', function() {
 			console.log('Log after doing something.')
 		})
 		myObj.doSomething()
